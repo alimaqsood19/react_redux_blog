@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchPosts} from '../actions';
+import {Link} from 'react-router-dom'; //Renders a navigation link that allows user to click to navigate around to diff
+//pages to render different components within your react Routers
 import _ from 'lodash';
 
 class PostIndex extends Component {
@@ -23,6 +25,14 @@ class PostIndex extends Component {
     render() {
         return (
             <div>
+                <div className="text-xs-right">
+                    <Link className="btn btn-primary" to="/posts/new">
+                    {/*This is similar to an anchor tag, expect instead of grabbing a new html doc and since we
+                    are using react router, the 'to' is the route that the user is redirected to, in where the
+                    specified components under that router will be rendered*/}
+                        Add a Post
+                    </Link>
+                </div>
                 <h3>Posts</h3>
                 <ul className="list-group">
                     {this.renderPosts()}
