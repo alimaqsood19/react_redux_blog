@@ -16,7 +16,11 @@ class PostIndex extends Component {
             //since its not an array we cant use the array.prototype.map() function
             return (
                 <li className="list-group-item" key={post.id} >
+                    <Link to={`/posts/${post.id}`}> 
                     {post.title}
+                    </Link>
+                    {/*Wrapping the post.title in Link basically makes it like an anchor tag link, when clicking on the
+                    title will then redirect to the http get request of /posts/:id where it will render the post for us*/}
                 </li>
             );
         });
